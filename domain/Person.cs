@@ -4,7 +4,7 @@ using System.Text;
 
 namespace csharp_concepts.domain
 {
-    class Person : IEquatable<Person>
+   public class Person : IEquatable<Person>
     {
         private string id, name;
         private int age;

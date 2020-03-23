@@ -8,7 +8,7 @@ namespace csharp_concepts.io.txt
 {
     class TextProcessor
     {
-        public static void process() {
+        public static List<Person> process() {
             StreamReader personsStream = new StreamReader("./../../../io/files/persons.txt");
 
             bool isRowValid(string row)
@@ -45,6 +45,7 @@ namespace csharp_concepts.io.txt
             }
             List<Person> people = rows.FindAll(isRowValid).ConvertAll(convertRowToPerson);
             Console.WriteLine(people.Count);
+            return people;
         }
     }
 }

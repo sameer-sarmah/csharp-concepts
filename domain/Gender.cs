@@ -4,7 +4,7 @@ using System.Text;
 
 namespace csharp_concepts.domain
 {
-    enum Gender
+   public enum Gender
     {
         MALE, FEMALE
     }

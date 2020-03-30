@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
+using csharp_concepts.attributes;
 using csharp_concepts.collection;
 using csharp_concepts.concurrency;
 using csharp_concepts.concurrency.barrier;
@@ -10,11 +11,15 @@ using csharp_concepts.concurrency.countdownlatch;
 using csharp_concepts.concurrency.producer.consumer.blockingqueue;
 using csharp_concepts.concurrency.producer.consumer.locks;
 using csharp_concepts.concurrency.semaphore;
+using csharp_concepts.events;
+using csharp_concepts.events.domain;
+using csharp_concepts.indexers;
 using csharp_concepts.io;
 using csharp_concepts.io.json;
 using csharp_concepts.io.txt;
 using csharp_concepts.io.xml;
 using csharp_concepts.mysql;
+using csharp_concepts.repository;
 
 namespace csharp_concepts
 {
@@ -61,8 +66,15 @@ namespace csharp_concepts
             //YieldPeople.yieldPerson();
             //MySQLConnection dao = new MySQLConnection();
             //dao.executeQuery();
-            ODBCConnection oDBCConnection = new ODBCConnection();
-            oDBCConnection.executeQuery();
+            //ODBCConnection oDBCConnection = new ODBCConnection();
+            //oDBCConnection.executeQuery();
+            //var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings[0].ConnectionString;
+            //Console.WriteLine(connectionString);
+            //OrderContext orderContext = new OrderContext(connectionString);
+            EventsRunner.createOrder();
+            //IndexerDriver.indexer();
+            //Reflection.dismantle();
+            //AttributeRunner.fetchAllDomainModels();
         }
 
 

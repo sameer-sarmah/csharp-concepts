@@ -1,19 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Text;
+﻿
 using csharp_concepts.entity;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
+using MySql.Data.EntityFrameworkCore.Extensions;
 
-//System.Data.Entity represents the new EF Core
+//MySql.Data.EntityFrameworkCore is not compatible with EF Core 3.0
+//Microsoft.EntityFrameworkCore represents the new EF Core
 //System.Data.Entity represents EF6
 namespace csharp_concepts.repository
 {
     public class OrderContext :  DbContext
     {
-        public OrderContext(string connectionString) : base(connectionString)
+        public OrderContext() : base()
         {
-             Database.SetInitializer<OrderContext>(new DropCreateDatabaseAlways<OrderContext>());
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            // optionsBuilder.UseMySQL("server=localhost;user=root;database=dotnetnorthwind;port=3308;password=root");
+            optionsBuilder.UseNpgsql("Host=localhost;Username=postgres;Database=dotnetnorthwind;Port=5432;Password=root");
         }
 
         public  DbSet<Address> Address { get; set; }

@@ -12,35 +12,35 @@ namespace csharp_concepts.entity
         public int id { get; set; }
         [ForeignKey("employee_id")]
         public Employee employee { get; set; }
-        [ForeignKey("customer_id")]
-        public Customer customer;
-        [ForeignKey("shipped_address")]
-        public Address address;
-        [ForeignKey("shipper_id")]
-        public Shipper shipper;
-        [ForeignKey("status_id")]
-        public OrderStatus orderStatus;
-        [Column(name: "order_date")]
 
-        public DateTime orderDate;
+        [ForeignKey("customer_id")]
+        public Customer customer { get; set; }
+
+        [ForeignKey("shipped_address")]
+        public Address address { get; set; }
+
+        [ForeignKey("shipper_id")]
+        public Shipper shipper { get; set; }
+
+        [ForeignKey("status_id")]
+        public OrderStatus orderStatus { get; set; }
+
+        [Column(name: "order_date")]
+        public DateTime orderDate { get; set; }
 
         [Column(name: "shipped_date")]
-
-        public DateTime shippedDate;
+        public DateTime shippedDate { get; set; }
 
         [Column("paid_date")]
-
-        public DateTime paidDate;
+        public DateTime paidDate { get; set; }
 
 
         [Column( "shipping_fee")]
+        public double shippingFee { get; set; }
 
-        public double shippingFee;
-
-        public double taxes;
+        public double taxes { get; set; }
 
         [Column( "payment_type")]
-
-        public String paymentType;
+        public string paymentType { get; set; }
     }
 }

@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace csharp_concepts.entity
 {
+    [Table("order_status")]
    public class OrderStatus
     {
         [Key]
-        private int id { get; set; }
-        private string status { get; set; }
+        public int id { get; set; }
+        public string status { get; set; }
     }
 }

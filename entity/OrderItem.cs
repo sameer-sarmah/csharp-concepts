@@ -6,10 +6,11 @@ using System.Text;
 
 namespace csharp_concepts.entity
 {
+    [Table("order_item")]
     public class OrderItem
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [ForeignKey("order_id")]
         public Order order { get; set; }

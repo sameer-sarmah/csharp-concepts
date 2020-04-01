@@ -11,6 +11,7 @@ using csharp_concepts.concurrency.countdownlatch;
 using csharp_concepts.concurrency.producer.consumer.blockingqueue;
 using csharp_concepts.concurrency.producer.consumer.locks;
 using csharp_concepts.concurrency.semaphore;
+using csharp_concepts.entity;
 using csharp_concepts.events;
 using csharp_concepts.events.domain;
 using csharp_concepts.indexers;
@@ -68,13 +69,20 @@ namespace csharp_concepts
             //dao.executeQuery();
             //ODBCConnection oDBCConnection = new ODBCConnection();
             //oDBCConnection.executeQuery();
-            //var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings[0].ConnectionString;
-            //Console.WriteLine(connectionString);
-            //OrderContext orderContext = new OrderContext(connectionString);
-            EventsRunner.createOrder();
+            //EventsRunner.createOrder();
             //IndexerDriver.indexer();
             //Reflection.dismantle();
             //AttributeRunner.fetchAllDomainModels();
+
+            //var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings[0].ConnectionString;
+            //Console.WriteLine(connectionString);
+            OrderContext orderContext = new OrderContext();
+            orderContext.Database.EnsureCreated();
+            object entity =orderContext.Find(typeof(Order),new object[]{ 1 });
+            if (entity is Order order) {
+                OrderStatus orderStatus= order.orderStatus;
+                Console.WriteLine(orderStatus);
+            }
         }
 
 

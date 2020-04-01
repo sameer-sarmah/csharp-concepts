@@ -21,6 +21,7 @@ using csharp_concepts.io.txt;
 using csharp_concepts.io.xml;
 using csharp_concepts.mysql;
 using csharp_concepts.repository;
+using Microsoft.EntityFrameworkCore;
 
 namespace csharp_concepts
 {
@@ -78,11 +79,20 @@ namespace csharp_concepts
             //Console.WriteLine(connectionString);
             OrderContext orderContext = new OrderContext();
             orderContext.Database.EnsureCreated();
-            object entity =orderContext.Find(typeof(Order),new object[]{ 1 });
-            if (entity is Order order) {
-                OrderStatus orderStatus= order.orderStatus;
+            object entity = orderContext.Order
+                .Include(order => order.orderStatus)
+                .Include(order => order.employee)
+                .Include(order => order.customer)
+                .Include(order => order.orderItems)
+                .Where(order => order.id == 1)
+                .First();
+            if (entity is Order order)
+            {
+
+                OrderStatus orderStatus = order.orderStatus;
                 Console.WriteLine(orderStatus);
             }
+          
         }
 
 

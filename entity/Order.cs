@@ -42,5 +42,7 @@ namespace csharp_concepts.entity
 
         [Column( "payment_type")]
         public string paymentType { get; set; }
+
+        public List<OrderItem> orderItems { get; set; }
     }
 }

@@ -82,7 +82,9 @@ namespace csharp_concepts
             object entity = orderContext.Order
                 .Include(order => order.orderStatus)
                 .Include(order => order.employee)
+                .Include(order => order.address)
                 .Include(order => order.customer)
+                .ThenInclude(customer => customer.address)
                 .Include(order => order.orderItems)
                 .ThenInclude(orderItem => orderItem.product)
                 .Where(order => order.id == 1)

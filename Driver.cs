@@ -84,6 +84,7 @@ namespace csharp_concepts
                 .Include(order => order.employee)
                 .Include(order => order.customer)
                 .Include(order => order.orderItems)
+                .ThenInclude(orderItem => orderItem.product)
                 .Where(order => order.id == 1)
                 .First();
             if (entity is Order order)

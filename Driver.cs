@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
+using csharp_concepts.AssemblyLoader;
 using csharp_concepts.attributes;
 using csharp_concepts.collection;
 using csharp_concepts.concurrency;
@@ -77,6 +78,12 @@ namespace csharp_concepts
 
             //var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings[0].ConnectionString;
             //Console.WriteLine(connectionString);
+            //getOrder();
+            LoadAssembly.load();
+
+        }
+
+        public static void getOrder() {
             OrderContext orderContext = new OrderContext();
             orderContext.Database.EnsureCreated();
             object entity = orderContext.Order
@@ -95,10 +102,7 @@ namespace csharp_concepts
                 OrderStatus orderStatus = order.orderStatus;
                 Console.WriteLine(orderStatus);
             }
-          
         }
-
-
     }
     
 

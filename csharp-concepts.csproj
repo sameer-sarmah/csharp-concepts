@@ -21,7 +21,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="MongoDB.Bson" Version="2.10.2" />
-    <PackageReference Include="MongoDB.Driver" Version="2.10.2" />
+    <PackageReference Include="MongoDB.Driver" Version="2.19.0" />
     <PackageReference Include="MongoDB.Driver.Core" Version="2.10.2" />
     <PackageReference Include="MySql.Data" Version="8.0.19" />
     <PackageReference Include="MySql.Data.Entity" Version="6.10.9" />
